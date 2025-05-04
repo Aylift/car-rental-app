@@ -147,3 +147,5 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'API for a car rental app',
     'VERSION': '1.0.0',
 }
+
+AUTH_USER_MODEL = 'users.CustomUser'
