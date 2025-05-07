@@ -1,3 +1,15 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+from cars.models import Car
 
-# Create your models here.
+User = get_user_model()
+
+class Reservation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user} → {self.car} ({self.start_date} - {self.end_date})"
