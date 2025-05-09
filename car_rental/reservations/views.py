@@ -5,6 +5,7 @@ from .serializers import ReservationSerializer
 from .models import Reservation
 from drf_spectacular.utils import extend_schema
 
+
 class ReservationListCreateView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
@@ -28,3 +29,26 @@ class ReservationListCreateView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class MockPaymentView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    @extend_schema(
+        summary="Mock payment for a reservation",
+        responses={200: ReservationSerializer}
+    )
+    def post(self, request, reservation_id):
+        try:
+            reservation = Reservation.objects.get(id=reservation_id, user=request.user)
+        except Reservation.DoesNotExist:
+            return Response({'detail': 'Reservation not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+        if reservation.payment_status == 'paid':
+            return Response({'detail': 'Reservation already paid.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        reservation.payment_status = 'paid'
+        reservation.save()
+
+        serializer = ReservationSerializer(reservation)
+        return Response(serializer.data, status=status.HTTP_200_OK)

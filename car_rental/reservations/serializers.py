@@ -5,8 +5,8 @@ from .models import Reservation
 class ReservationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reservation
-        fields = ['id', 'user', 'car', 'start_date', 'end_date', 'created_at']
-        read_only_fields = ['id', 'created_at', 'user']
+        fields = ['id', 'user', 'car', 'start_date', 'end_date', 'created_at', 'payment_status']
+        read_only_fields = ['id', 'created_at', 'user', 'payment_status']
 
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
