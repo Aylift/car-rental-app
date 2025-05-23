@@ -1,0 +1,7 @@
+.iconMenu {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    width: 20rem;
+    justify-content: center;
+}
