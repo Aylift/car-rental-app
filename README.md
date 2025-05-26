@@ -24,3 +24,10 @@
 5. To See API endpoints, go to:
 
     _http://localhost:8000/api/docs_
+
+6. If you want to enable the app preview you need to enable the "Live server". 
+You can download it as a plugin in the "Visual Studio Code" app.
+
+7. After downloading the "Live server" you need to go to the "index.html" file and at the bottom you need to press the "Go Live" button.
+
+8. 8. If you want to see the list of vehicles, you must register and log-in
