@@ -7,3 +7,4 @@ class Car(models.Model):
     year = models.PositiveIntegerField()
     price_per_day = models.DecimalField(max_digits=8, decimal_places=2)
     available = models.BooleanField(default=True)
+    image = models.ImageField(upload_to='car_images/', default='car_images/default.jpg', blank=True)

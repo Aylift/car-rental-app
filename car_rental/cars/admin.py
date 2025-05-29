@@ -4,6 +4,6 @@ from .models import Car
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    list_display = ('id', 'brand', 'model', 'year', 'price_per_day', 'available')
+    list_display = ('id', 'brand', 'model', 'year', 'price_per_day', 'available', 'image')
     list_filter = ('available', 'year', 'brand')
     search_fields = ('brand', 'model')
