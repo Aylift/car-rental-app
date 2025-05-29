@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(car => {
       const div = document.getElementById("car-details");
+      const imageUrl = `http://localhost:8000${car.image}`; // Sklejamy pełny URL
+
       div.innerHTML = `
         <h2>${car.brand} ${car.model}</h2>
+        <img src="${imageUrl}" alt="Zdjęcie auta" style="max-width: 400px; height: auto;">
         <p>Rok: ${car.year}</p>
         <p>Cena za dzień: ${car.price_per_day} zł</p>
         <p>Dostępny: ${car.available ? "Tak" : "Nie"}</p>
