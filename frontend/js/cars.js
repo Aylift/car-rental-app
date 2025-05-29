@@ -31,3 +31,26 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("cars-list").innerHTML = "<p>Błąd wczytywania samochodów.</p>";
     });
 });
+
+
+const currentUser = {
+  username: "admin",
+  is_staff: true 
+};
+
+if (currentUser.is_staff) {
+  document.querySelectorAll('.admin-only').forEach(el => {
+      el.style.display = 'block';
+  });
+}
+function goBack() {
+  alert("Wróć do listy pojazdów");
+}
+
+function deleteVehicle() {
+  alert("Usuwanie pojazdu (tylko admin)");
+}
+
+function goToAdminPanel() {
+  alert("Przejście do panelu administratora");
+}
