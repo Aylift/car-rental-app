@@ -1,5 +1,5 @@
 # car-rental-app
-<h1>Car rental web app, made using Django and React.</h1>
+<h1>Car rental web app, made using Django</h1>
 
 ### How to run locally:
 1. Clone the repo

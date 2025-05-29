@@ -1,7 +1,13 @@
 * {
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
 }
 
 body {
@@ -9,12 +15,11 @@ body {
   font-size: 16px;
   background-color: #f8f9fa;
   color: #333;
-  padding: 1rem;
 }
 
 a {
   text-decoration: none;
-  color: #007BFF;
+  color: #007bff;
 }
 a:hover {
   text-decoration: underline;
@@ -23,10 +28,10 @@ a:hover {
 .site-header {
   background-color: #003366;
   color: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 .site-header h1 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .site-header h1 a {
   color: white;
@@ -36,9 +41,89 @@ a:hover {
   display: flex;
   gap: 1rem;
 }
-.site-header nav a, .site-header nav span {
+.site-header nav a,
+.site-header nav span {
   color: white;
   font-weight: 500;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.header-boxImage {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+.header-img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+.header-boxText {
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.35);
+  height: 100%;
+}
+.header-boxText-title {
+  color: white;
+  margin: 1rem 2rem;
+  font-size: 2.4rem;
+  position: relative;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.header-boxText-title_hero {
+  color: #007bff;
+}
+.header-boxText_text {
+  color: white;
+  position: relative;
+  text-align: center;
+  margin: 0 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.aboutus {
+  height: 85vh;
+}
+.aboutus__title {
+  text-align: center;
+  font-size: 2.4rem;
+  padding-top: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #007bff;
+}
+.aboutus__img {
+  height: 20rem;
+  width: 100%;
+  background-size: cover;
+  border-radius: 12px;
+}
+.aboutus__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem;
+}
+.aboutus__box-img {
+  width: 100%;
+  height: 10rem;
+  text-align: center;
+}
+.aboutus__box-text {
+  width: 100%;
+  text-align: center;
+}
+.aboutus__box-text-title {
+  text-transform: uppercase;
+  margin: 2rem;
 }
 
 .site-footer {
@@ -51,7 +136,7 @@ a:hover {
   margin: 1rem 0;
 }
 .site-footer a {
-  color: #007BFF;
+  color: #007bff;
 }
 
 form {
@@ -71,7 +156,7 @@ form input {
 }
 form button {
   padding: 0.5rem 1rem;
-  background-color: #007BFF;
+  background-color: #007bff;
   border: none;
   color: white;
   border-radius: 4px;
