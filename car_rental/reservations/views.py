@@ -31,6 +31,26 @@ class ReservationListCreateView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class CancelReservationView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    @extend_schema(
+        summary="Cancel a reservation",
+        responses={200: ReservationSerializer, 404: dict, 400: dict}
+    )
+    def post(self, request, reservation_id):
+        try:
+            reservation = Reservation.objects.get(id=reservation_id, user=request.user)
+        except Reservation.DoesNotExist:
+            return Response({'detail': 'Reservation not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+        if reservation.payment_status == 'paid':
+            return Response({'detail': 'Cannot cancel a paid reservation.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        reservation.delete()
+        return Response({'detail': 'Reservation canceled successfully.'}, status=status.HTTP_200_OK)
+
+
 class MockPaymentView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
