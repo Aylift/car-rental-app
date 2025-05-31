@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (user) {
     container.innerHTML = `
-      <p>Witaj ponownie, ${user.name}!</p>
+      <p>Witaj ponownie, ${user.name}! </p>
       <a href="cars.html" class="button">Zobacz samochody</a>
     `;
   } else {
